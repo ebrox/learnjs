@@ -27,3 +27,8 @@ learnjs.appOnReady = function() {
     };
     learnjs.showView(window.location.hash);
 }
+learnjs.problemView = function(problemNumber{
+    var view = $('.templates .problem-view').clone();
+    view.find('.title').text('Problem #' + problemNumber);
+    return view;
+}
