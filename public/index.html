@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+<!--
+ ! Copied from 3912 - too many inconsistencies to keep up with
+-->
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>Dev: Learn JS!</title>
+    <title>Learn JS!</title>
     <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
@@ -10,8 +13,25 @@
     <script src='/vendor.js'></script>
     <script src='/app.js'></script>
     <style type="text/css" media="all">
-        body {margin-top: 60px;}
-        .templates{display: none;}
+        body { margin-top: 60px; }
+        .templates { display: none; }
+        .fixed-width-text { font-family: "Consolas","Courier New",monospace }
+        .no-select {
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+        }
+        .nav-container {
+            padding-left: 40px;
+            background: #666;
+        }
+        .nav-container a { color: white; }
+        .fixed-top {
+            position: fixed;
+            top: 0px;
+            z-index: 1024;
+        }
         .inline-list {
             margin-bottom: 0px; /* Skeleton reset */
         }
@@ -19,26 +39,18 @@
             display: inline;
             margin: 0 20px 0 0;
         }
-        .fixed-top {
-            position: fixed;
-            top: 0px;
-            z-index: 1024;
-        }
-        .no-select {
-            user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -moz-user-select: none;
-        }
         .hover-links a { text-decoration: none; }
         .hover-links a:hover { text-decoration: underline; }
-        .nav-container {
-            padding-left: 40px;
-            background: #666;
+        .navbar-padding {
+            padding-top: 7px;
+            display: inline-block;
         }
-        .nav-container a { color: white; }
+        .text-lg {
+            font-size: 32px;
+        }
     </style>
-</head>
+    </style>
+    </head>
 <body>
 <div class='markup'>
     <div class='nav-container no-select fixed-top u-full-width'>
@@ -62,18 +74,24 @@
                 </div>
             </div>
         </div>
+
         <div class='problem-view'>
             <h3 class='title'></h3>
-            <p data-name = 'description'></p>
-            <pre><code data-name = 'code'></code></pre>
+            <p data-name='description'></p>
+            <pre><code data-name='code'></code></pre>
             <form>
-                <textarea class='u-full-width answer'></textarea>
+                <textarea class='u-full-width answer fixed-width-text'></textarea>
                 <div>
                     <button class='button-primary check-btn'>Check Answer</button>
                     <p class='result'></p>
                 </div>
             </form>
         </div>
+
+        <li class='skip-btn'>
+            <a>Skip This Problem</a>
+        </li>
+
         <div class='correct-flash'>
             <span>Correct!</span> <a>Next Problem</a>
         </div>
